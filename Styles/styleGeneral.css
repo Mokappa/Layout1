@@ -1,0 +1,585 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font */
+@font-face {
+    font-family: 'SF Pro Display Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF Pro Display Regular'), url('SFPRODISPLAYREGULAR.woff') format('woff');
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Text Appear on Phone */
+.textAppearPhone {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 0;
+    background: rgba(109, 109, 109, 0.2);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    color: #858585;
+    font-size: 30px;
+    text-align: left;
+    font-family: 'SF Pro Display Regular';
+    transition: all 0.5s ease-in-out;
+    cursor: default;
+}
+
+.closeArea {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    display: none;
+    opacity: 0;
+    transition: all 0.25s ease-in;
+}
+
+.closeButtonLine1 {
+    width: 40px;
+    height: 3px;
+    background: #a0a0a0;
+    margin-bottom: 10px;
+    transform: translateY(6.5px) rotate(45deg);
+    
+}
+
+.closeButtonLine2 {
+    width: 40px;
+    height: 3px;
+    background: #a0a0a0;
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.textWrapArea {
+    width: 100%;
+    margin: 200px 0;
+    padding: 0 50px;
+    text-align: justify;
+    display: none;
+    opacity: 0;
+    transition: all 0.25s ease;
+}
+
+
+/* Hero Hover Move */
+.heroCanvas {
+    height: 100vh;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroCanvas:after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    background: gradient(linear, left bottom, left top, from(#000), to(transparent));
+    background: linear-gradient(0deg, #000, transparent);
+}
+
+.heroImages {
+	transform: translate(calc(-1px * var(--x)), calc(-1px * var(--y)));
+    transition: transform 2s ease-out;
+    position: relative;
+    background-color: black;
+    height: 100vh;
+}
+
+.heroText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: #858585;
+    cursor: default;
+    font-size: 50px;
+    font-family:'SF Pro Display Regular';
+    letter-spacing: 3px;
+    animation: slideUp 2s;
+}
+
+.heroText h1:nth-child(2) {
+    color: #505050;
+    font-size: 50px;
+    animation: slideUp 5s;
+}
+
+.heroCanvas #svgArrow {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    opacity: 0.6;
+    height: 55px;
+    width: 45px;
+    animation: arrowAnim 4s ease-in-out infinite;
+    z-index: 99;
+}
+
+.heroCanvasPhone #svgArrowPhone {
+    display: none;
+}
+
+.arrowPhoneBackground, .arrowPhoneBackgroundhAC {
+    display: none;
+}
+
+
+/* Image Projects */
+.imageProjects {
+    position: absolute;
+    top: 800px;
+    left: -50px;
+    text-align: center;
+    opacity: 0;
+    animation: fading 3s forwards;
+    animation-delay: 0.5s;
+}
+
+.imageProjects h1 {
+    margin-top: 20px;
+    color: #505050;
+    cursor: default;
+    font-family:'SF Pro Display Regular';
+    letter-spacing: 3px;
+}
+
+.imageProjects svg {
+    transition: 0.5s;
+}
+
+.imageProjects svg:hover {
+    opacity: 0.5;
+}
+
+#ImageProjects:hover + .textAppearing_imgProjects {
+    opacity: 1;
+    visibility: visible;
+    right: -170%;
+}
+
+.textAppearing_imgProjects {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    right: -150%;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    transition: 0.5s ease;
+    color: #858585;
+    font-family:'SF Pro Display Regular';
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-align: left;
+    cursor: default;
+}
+
+
+/* Image Jobs */
+.imageJobs {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    text-align: center;
+    opacity: 0;
+    animation: fading 2s forwards;
+    animation-delay: 0.3s;
+}
+
+.imageJobs h1 {
+    margin-top: 20px;
+    color: #505050;
+    cursor: default;
+    font-family:'SF Pro Display Regular';
+    letter-spacing: 3px;
+}
+
+.imageJobs svg {
+    transition: 0.5s;
+}
+
+.imageJobs svg:hover {
+    opacity: 0.5;
+}
+
+#ImageJobs:hover + .textAppearing_imgJobs {
+    opacity: 1;
+    visibility: visible;
+    right: -270%;
+}
+
+.textAppearing_imgJobs {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    right: -250%;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    transition: 0.5s ease;
+    color: #858585;
+    font-family:'SF Pro Display Regular';
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-align: left;
+    cursor: default;
+}
+
+
+/* Image Locations */
+.imageLocations {
+    position: absolute;
+    text-align: center;
+    top: -150px;
+    right: -70px;
+    opacity: 0;
+    animation: fading 2.5s forwards;
+    animation-delay: 0s;
+}
+
+.imageLocations h1 {
+    margin-top: 20px;
+    color: #505050;
+    cursor: default;
+    font-family:'SF Pro Display Regular';
+    letter-spacing: 3px;
+}
+
+.imageLocations svg {
+    transition: 0.5s;
+}
+
+.imageLocations svg:hover {
+    opacity: 0.5;
+}
+
+#ImageLocations:hover + .textAppearing_imgLocations {
+    opacity: 1;
+    visibility: visible;
+    left: -270%;
+}
+
+.textAppearing_imgLocations {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    left: -250%;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    transition: 0.5s ease;
+    color: #858585;
+    font-family:'SF Pro Display Regular';
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-align: right;
+    cursor: default;
+}
+
+
+/* Image About Me */
+.imageAbMe {
+    position: absolute;
+    text-align: center;
+    bottom: -100px;
+    right: 100px;
+    opacity: 0;
+    animation: fading 2.5s forwards;
+    animation-delay: 0.7s;
+}
+
+.imageAbMe h1 {
+    margin-top: 20px;
+    color: #505050;
+    cursor: default;
+    font-family:'SF Pro Display Regular';
+    letter-spacing: 3px;
+}
+
+.imageAbMe svg {
+    transition: 0.5s;
+}
+
+.imageAbMe svg:hover {
+    opacity: 0.5;
+}
+
+#ImageAbMe:hover + .textAppearing_imgAbMe {
+    opacity: 1;
+    visibility: visible;
+    left: -270%;
+}
+
+.textAppearing_imgAbMe {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    left: -250%;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    transition: 0.5s ease;
+    color: #858585;
+    font-family:'SF Pro Display Regular';
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-align: right;
+    cursor: default;
+}
+
+
+/* Content with image + contact */
+.heroAfterContent {
+    background-color: rgb(29, 29, 29);
+    text-align: center;
+    position: relative;
+}
+
+.hacCTitle {
+    font-family:'SF Pro Display Regular';
+    font-size: 60px;
+    letter-spacing: 3px;
+    color: #858585;
+    padding-top: 200px;
+    padding-bottom: 50px;
+    cursor: default;
+}
+
+.flexContent {
+    display: flex;
+}
+
+/* Image Part */
+.imagePart {
+    width: 50%;
+    text-align: center;
+}
+
+.imagePart img{
+    width: 400px;
+    height: 550px;
+    box-shadow: 0px 0px 10px 5px rgb(19, 19, 19);
+    border-radius: 15px;
+    margin-bottom: 200px;
+    
+}
+
+
+/* Contact Part */
+.contactPart {
+    width: 50%;
+}
+
+.contactBox {
+    border-radius: 15px;
+    width: 500px;
+    height: 600px;
+    background-color: rgb(95, 95, 95);
+    box-shadow: 0px 0px 10px 5px rgb(19, 19, 19);
+    padding-top: 30px;
+    margin: 0 auto 0 auto;
+}
+
+.inputField {
+    width: 400px;
+    height: 40px;
+    margin-top: 40px;
+    padding-left: 10px;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 15px;
+    outline: none;
+    font-family:'SF Pro Display Regular';
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: white;
+    background-color: rgb(73, 73, 73);
+}
+
+.textarea_field {
+    height: 150px;
+    padding-top: 10px;
+    resize: none;
+}
+
+.submit {
+    background: #ff56229a;
+    border-color: transparent;
+    font-size: 20px;
+    height: 50px;
+    width: 300px;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer svg {
+    height: 25px;
+    margin-top: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.footer svg:hover {
+    opacity: 0.5;
+}
+
+.footer h1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family:'SF Pro Display Regular';
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #858585;
+    cursor: default
+}
+
+.footer span {
+    text-decoration: none;
+    transition: 0.5s;
+    color: #d8d8d8;
+    cursor: pointer;
+}
+
+.footer span:hover {
+    opacity: 0.5;
+}
+
+
+/* The "Screws" */
+.imageRandom1 {
+    position: absolute;
+    top: 500px;
+    left: -300px;
+    opacity: 0.3;
+    transform: rotate(-95deg);
+}
+
+.imageRandom2 {
+    position: absolute;
+    top: -200px;
+    left: 1000px;
+    opacity: 0.3;
+    transform: rotate(3deg);
+}
+
+.imageRandom3 {
+    position: absolute;
+    bottom: -250px;
+    left: 750px;
+    opacity: 0.3;
+    transform: rotate(3deg);
+}
+
+.imageRandom4 {
+    position: absolute;
+    top: 300px;
+    right: -300px;
+    opacity: 0.3;
+    transform: rotate(-95deg);
+}
+
+.imageRandom5 {
+    position: absolute;
+    bottom: -250px;
+    right: -550px;
+    opacity: 0.3;
+    transform: rotate(-45deg);
+}
+
+.imageRandom6 {
+    position: absolute;
+    top: -300px;
+    left: -500px;
+    opacity: 0.3;
+    transform: rotate(-45deg);
+}
+
+.imageRandom7 {
+    position: absolute;
+    bottom: -420px;
+    left: -520px;
+    opacity: 0.3;
+    transform: rotate(45deg);
+}
+
+.imageRandom8 {
+    position: absolute;
+    top: -350px;
+    right: -600px;
+    opacity: 0.3;
+    transform: rotate(50deg);
+}
+
+
+/*Animation*/
+@keyframes fading {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes slideUp {
+    0%{
+        top: 60%;
+        opacity: 0;
+    }
+
+    100%{
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes arrowAnim {
+    0% {
+        bottom: 5%;
+    }
+
+    50% {
+        bottom: 2%;
+    }
+
+    100% {
+        bottom: 5%;
+    }
+}
