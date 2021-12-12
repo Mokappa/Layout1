@@ -124,7 +124,7 @@ function appearDivFromLeft() {
     // Text + Close Button Appear
     setTimeout(function () {
         document.querySelector('.closeArea').style.display = 'block'
-        document.querySelector('.textWrapArea').style.display = 'block'
+        document.querySelector('.textWrapArea').style.display = 'flex'
     }, 600)
 
     setTimeout(function () {
